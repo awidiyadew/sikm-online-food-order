@@ -7,23 +7,24 @@ FOR Restaurant in ListOfRestaurant:
     IF Restaurant INCLUDES RestaurantName:
         SHOW Restaurant
 READ INPUT ChoiceOfRestaurant
-FOR Restaurant in ListOfRestaurant:
-    IF Restaurant == ChoiceOfRestaurant:
-        SHOW Restaurant
-        BREAK
 SHOW DetailofRestaurant
 FOR Menu in MenuOfRestaurant:
     SHOW Menu
-READ ListOfCartItem 
+
 READ INPUT FoodOrder
+
+TOTAL = 0
+FOR Food in FoodOrder:
+    TOTAL += Food.Price
 
 ORDER_IS_NOT_PAID = TRUE
 WHILE ORDER_IS_NOT_PAID:
     READ INPUT PaymentMethod
-    IF PaymentMethod IS VALID:
+    IF PaymentMethod IS VALID AND Saldo >= TOTAL:
         PAY FoodOrder
         DELIVER FoodOrder
-        END
-        FINISH
+        ORDER_IS_NOT_PAID = FALSE
+END WHILE
+FINISH
 
 
