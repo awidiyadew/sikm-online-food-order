@@ -13,14 +13,14 @@ FOR Menu in MenuOfRestaurant:
 
 READ INPUT FoodOrder
 
-TOTAL = 0
+Total = 0
 FOR Food in FoodOrder:
-    TOTAL += Food.Price
+    Total += Food.Price
 
 ORDER_IS_NOT_PAID = TRUE
 WHILE ORDER_IS_NOT_PAID:
     READ INPUT PaymentMethod
-    IF PaymentMethod IS VALID AND Saldo >= TOTAL:
+    IF PaymentMethod IS VALID AND Saldo >= Total:
         PAY FoodOrder
         DELIVER FoodOrder
         ORDER_IS_NOT_PAID = FALSE
