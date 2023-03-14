@@ -1,0 +1,35 @@
+PROGRAM FoodOrder
+
+START
+
+SHOW "restaurantList"
+READ INPUT "restaurantName"
+
+IF "restaurantName" in "restaurantList":
+    SHOW "restaurantName"
+
+READ INPUT "choiceRestaurant"
+SHOW "restaurantMenu"
+READ INPUT "isNotDone" = TRUE
+
+WHILE "isNotDone":
+    READ INPUT "foodChoice"
+    READ INPUT "isNotDone"
+    STORE "isNotDone" = FALSE
+END WHILE   
+
+STORE "total" = 0
+FOR FOOD IN "foodChoice":
+    "total"+="priceOfFood"
+
+READ INPUT "paymentSuccess" = FALSE
+WHILE "paymentSuccess" IS FALSE:
+    SHOW "listPaymentMethod"
+    READ INPUT "choicePaymentmethodPayment"
+    READ INPUT "balance"
+    IF "balance" >= "total":
+        DELIVER "foodChoice"
+        PRINT "recepeit"
+        "paymentSuccess" = TRUE
+END WHILE
+FINISH    
