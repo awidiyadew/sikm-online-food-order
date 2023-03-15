@@ -1,0 +1,41 @@
+START
+
+DISPLAY login page
+
+IF have an account
+	CALL Login()
+ELSE 
+	CALL register()
+	CALL login()
+ENDIF
+
+SHOW "delivery"
+READ INPUT "address"
+SHOW "restourantMenu"
+
+WHILE want to add order 
+    READ INPUT "orders"
+    ADD "ordersToCart"
+    IF add more order
+        exit WHILE
+    END IF
+END WHILE
+
+STORE "total" = 0
+FOR FOOD IN "orders":
+    "total" += "priceOfOrders"
+
+READ INPUT "paymentSuccess" = FALSE
+
+WHILE "paymentSuccess" IS FALSE:
+    SHOW "listPaymentMethod"
+    READ INPUT "choicePaymentMethod"
+    READ INPUT "balance"
+    IF "balance" >= "total":
+        SHOW "orderNow"
+        DELIVER "orders"
+        PRINT "receipt"
+        "paymentSuccess" = TRUE
+END WHILE
+
+FINISH    
