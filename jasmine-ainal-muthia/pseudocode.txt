@@ -1,0 +1,30 @@
+PROGRAM FoodOrder
+
+START
+
+READ INPUT RestaurantName
+FOR Restaurant in ListOfRestaurant:
+    IF Restaurant INCLUDES RestaurantName:
+        SHOW Restaurant
+READ INPUT ChoiceOfRestaurant
+SHOW DetailofRestaurant
+FOR Menu in MenuOfRestaurant:
+    SHOW Menu
+
+READ INPUT FoodOrder
+
+Total = 0
+FOR Food in FoodOrder:
+    Total += Food.Price
+
+ORDER_IS_NOT_PAID = TRUE
+WHILE ORDER_IS_NOT_PAID:
+    READ INPUT PaymentMethod
+    IF PaymentMethod IS VALID AND Saldo >= Total:
+        PAY FoodOrder
+        DELIVER FoodOrder
+        ORDER_IS_NOT_PAID = FALSE
+END WHILE
+FINISH
+
+
