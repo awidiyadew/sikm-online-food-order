@@ -1,0 +1,54 @@
+PROGRAM FoodOrder
+
+START
+
+	DISPLAY login page
+
+	IF punya akun
+
+		CALL Login()
+
+	ELSE 
+
+		CALL register()
+		CALL login()
+
+	ENDIF
+	
+	
+	WHILE ingin menambah makanan 
+
+		READ makanan
+		ADD makanan ke daftar belanja
+		COMPUTE total belanja
+		
+		IF sudah selesai memilih makanan
+			
+			keluar dari WHILE
+		
+		ENDIF
+			
+	ENDWHILE
+		
+	CALL checkout()
+		
+	WHILE belum dibayar
+	
+		IF saldo cukup
+
+			pembayaran berhasil
+			Set metode pembayaran to TRUE
+		
+		ELSE IF saldo tidak cukup
+			
+			pembayaran tidak berhasil
+			
+		ENDIF
+	
+	ENDWHILE
+
+    DISPLAY pesanan
+
+    CALL sendEmailReceipt()
+		
+END
