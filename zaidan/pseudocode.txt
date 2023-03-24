@@ -1,0 +1,13 @@
+PROGRAM FoodOrder
+
+READ AND WRITE "nama_makanan" with string
+READ AND WRITE "harga" with NUMBER
+
+READ "saldo" with NUMBER 100000
+STORE "nama_makanan" with "PaNas_2"
+READ PRICE OF "PaNas_2" as "harga"
+
+IF "saldo" more than or equal "harga"
+    PRINT "Menerima orderan"
+ELSE
+    PRINT "Pilih pembayaran lain"
